@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتائج مفاضلات القبول الجامعي</title>
+    
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Link to our external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fixed Header -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-icons">
+                <i class="fas fa-bell fa-lg"></i>
+                <i class="fas fa-bars fa-lg"></i>
+            </div>
+            <!-- Added Navbar Title -->
+            <div class="navbar-title">نتائج مفاضلة القبول الجامعي</div>
+            <div class="user-badge">
+                <i class="fas fa-user"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Login View -->
+        <div id="login-view">
+            <h1>نتائج مفاضلة فرز طلاب السنة التحضيريّة</h1>
+            <form id="login-form">
+                <div class="login-form-group">
+                    <label for="exam-number">الرقم الإمتحاني</label>
+                    <input type="text" id="exam-number" placeholder="أدخل رقمك الإمتحاني" required>
+                </div>
+                <button type="submit" class="btn-show-result">أظهار نتيجة المفاضلة</button>
+                <p class="error-message" id="error-message">الرقم الإمتحاني غير صحيح، يرجى التحقق منه.</p>
+                <div class="loading-spinner" id="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i> جاري تحميل النتيجة...
+                </div>
+            </form>
+        </div>
+
+        <!-- Results View (Initially Hidden) -->
+        <div id="results-view">
+            <div class="results-container">
+                <div class="student-info-card">
+                    <div class="student-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="student-details">
+                        <h3 id="student-name">اسم الطالب</h3>
+                        <p>الثانوية العامة الفرع العلمي - سوريا - 2024</p>
+                    </div>
+                </div>
+
+                <div class="results-content">
+                    <h2>مفاضلاتك المسجلة</h2>
+                    <p>يمكنك إدارة أو إلغاء المفاضلات المسجلة</p>
+                    
+                    <button class="btn-register-new">
+                        <i class="fas fa-plus"></i>
+                        تسجيل في مفاضلة جديدة
+                    </button>
+
+                    <div class="result-card">
+                        <div class="result-card-header">
+                            <i class="fas fa-check-circle"></i>
+                            <span>مثبتة</span>
+                        </div>
+                        <div class="result-card-body">
+                            <h3>نتائج مفاضلة فرز طلاب السنة التحضيرية</h3>
+                            <p class="paid-badge">مدفوع</p>
+                            <p class="status-accepted">
+                                <i class="fas fa-check-circle"></i>
+                                مقبول في رغبة من رغباته
+                            </p>
+                            <p class="final-result" id="final-result">
+                                نتيجتك هي <span id="college-name">...</span> في جامعة <span id="university-name">...</span>
+                            </p>
+                            
+                            <div class="info-row">
+                                <span>بداية التسجيل</span>
+                                <span>2/11/2025 <i class="fas fa-calendar-alt"></i></span>
+                            </div>
+                            <div class="info-row">
+                                <span>نهاية التسجيل</span>
+                                <span>6/11/2025 <i class="fas fa-calendar-alt"></i></span>
+                            </div>
+
+                            <button class="btn-cancel">طلب إلغاء المفاضلة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        جميع الحقوق محفوظة – وزارة التعليم العالي 2025
+    </footer>
+
+    <!-- Link to our external JavaScript file -->
+    <script src="script.js" defer></script>
+</body>
+</html>
