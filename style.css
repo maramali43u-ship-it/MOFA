@@ -1,0 +1,391 @@
+/* --- CSS Variables (Custom Palette) --- */
+:root {
+    --green-dark-1: #0A2E2A;
+    --green-dark-2: #0F3D38;
+    --primary-teal: #00695C;
+    --text-dark: #1B2B2A;
+    --danger-red: #C62828;
+    --deep-accent: #004D40;
+}
+
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: white;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Fixed Header --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    background-color: var(--green-dark-1);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.navbar .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.navbar .navbar-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    flex-grow: 1;
+    text-align: center;
+}
+.navbar .user-badge {
+    width: 40px;
+    height: 40px;
+    background-color: var(--green-dark-2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+/* --- Main Content Area --- */
+main {
+    flex-grow: 1;
+    padding: 7rem 2rem 2rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background-color: var(--green-dark-1);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* --- Login View Styles --- */
+#login-view {
+    text-align: center;
+    background-color: white;
+    padding: 3rem 4rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #e0e0e0;
+}
+
+#login-view h1 {
+    color: var(--green-dark-1);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.login-form-group {
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+.login-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-teal);
+}
+
+.login-form-group input {
+    width: 100%;
+    padding: 0.9rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Cairo', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-form-group input:focus {
+    outline: none;
+    border-color: #27ba45;
+    box-shadow: 0 0 0 3px rgba(39, 186, 69, 0.2);
+}
+
+.btn-show-result {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--green-dark-1);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-show-result:hover {
+    background-color: var(--green-dark-2);
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: var(--danger-red);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.loading-spinner {
+    display: none;
+    margin-top: 1.5rem;
+    color: var(--primary-teal);
+}
+.loading-spinner i {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* --- Results View Styles --- */
+#results-view {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Student Info Card */
+.student-info-card {
+    background-color: #f8f8f8;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
+}
+.student-info-card .student-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+.student-info-card .student-details {
+    flex-grow: 1;
+}
+.student-info-card .student-details h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--green-dark-1);
+    margin-bottom: 0.5rem;
+}
+.student-info-card .student-details p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Grade Card Styles --- */
+.grade-card {
+    display: inline-block;
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+}
+
+.grade-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* CHANGE: New beautiful icon style */
+.grade-card p i {
+    background-color: #e8f5e9; /* Light green background */
+    color: #27ba45; /* Main green color for the icon */
+    padding: 0.3rem;
+    border-radius: 50%; /* Makes it a circle */
+    font-size: 0.8rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+}
+
+
+/* Main Content Area */
+.results-content {
+    margin-top: 2rem;
+}
+.results-content h2 {
+    color: var(--green-dark-1);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.results-content p {
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+.btn-register-new {
+    background-color: var(--primary-teal);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s;
+}
+.btn-register-new:hover {
+    background-color: var(--deep-accent);
+}
+
+/* Result Card */
+.result-card {
+    background-color: #e4f5ef;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #c2e0d4;
+}
+.result-card-header {
+    background-color: #27ba45;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 600;
+}
+.result-card-body {
+    padding: 2rem;
+    background-color: transparent;
+}
+.result-card-body h3 {
+    text-align: center;
+    color: #27ba45;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.paid-badge {
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+.status-accepted {
+    text-align: center;
+    color: var(--primary-teal);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+.status-accepted i {
+    color: #2E7D32;
+}
+.final-result {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #d0e7dc;
+}
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f3f6f4;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+.info-row span {
+    font-weight: 600;
+}
+.info-row i {
+    color: var(--primary-teal);
+}
+.btn-cancel {
+    width: 100%;
+    padding: 1rem;
+    background-color: #f3f6f4;
+    color: var(--danger-red);
+    border: 2px solid var(--danger-red);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-cancel:hover {
+    background-color: var(--danger-red);
+    color: white;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    main {
+        padding: 6rem 1rem 1rem 1rem;
+    }
+    #login-view {
+        padding: 2rem 1.5rem;
+    }
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+    .result-card-body {
+        padding: 1.5rem;
+    }
+}
